@@ -1,13 +1,13 @@
 <?php
 /*
 Plugin Name: Author AutoComplete Metabox
-Plugin URI: http://blog.meloniq.net/
+Plugin URI: https://blog.meloniq.net/
 Description: Replaces standard Author metabox with the one powered by AutoComplete feature.
 
-Version: 0.1
+Version: 0.2
 
 Author: MELONIQ.NET
-Author URI: http://www.meloniq.net
+Author URI: https://www.meloniq.net
 Text Domain: author-autocomplete-metabox
 Domain Path: /languages
 
@@ -27,7 +27,6 @@ if ( ! function_exists( 'add_action' ) ) {
 /**
  * Plugin version and textdomain constants.
  */
-define( 'AAM_VERSION', '0.1' );
 define( 'AAM_TD', 'author-autocomplete-metabox' );
 
 
@@ -40,6 +39,9 @@ function aam_setup() {
 	// Load Text-Domain
 	load_plugin_textdomain( AAM_TD, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
+	// Load Metabox
+	require_once( 'aam-metabox.php' );
+	new AAM_Author_Metabox();
 }
 add_action( 'plugins_loaded', 'aam_setup' );
 

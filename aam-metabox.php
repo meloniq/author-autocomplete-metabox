@@ -58,7 +58,7 @@ class AAM_Author_Metabox {
 	public function enqueue_scripts() {
 
 		// auto-suggest
-		wp_register_script( 'author-metabox', plugins_url( '/aam-metabox.js', __FILE__ ), array( 'jquery', 'jquery-ui-autocomplete' ), '0.1' );
+		wp_register_script( 'author-metabox', plugins_url( '/aam-metabox.js', __FILE__ ), array(), '0.2' );
 		wp_enqueue_script( 'author-metabox' );
 
 		/* Script variables */
@@ -89,19 +89,19 @@ class AAM_Author_Metabox {
 
 		// label field
 		$args_label_field = array(
-			'id' => 'post_author_override_label',
-			'name' => 'post_author_override_label',
+			'id'    => 'post_author_override_label',
+			'name'  => 'post_author_override_label',
 			'class' => 'large-text',
-			'type' => 'text',
+			'type'  => 'text',
 			'value' => $user_label,
 		);
 		$input_label_field = html( 'input', $args_label_field );
 
 		// hidden field
 		$args_hidden_field = array(
-			'id' => 'post_author_override',
-			'name' => 'post_author_override',
-			'type' => 'hidden',
+			'id'    => 'post_author_override',
+			'name'  => 'post_author_override',
+			'type'  => 'hidden',
 			'value' => $user_id,
 		);
 		$input_hidden_field = html( 'input', $args_hidden_field );
@@ -135,7 +135,7 @@ class AAM_Author_Metabox {
 		// filter used to make it possible to search by 'display_name', passing it via 'search_columns' arg will not work ;(
 		add_filter( 'user_search_columns', array( $this, 'user_search_columns' ), 10, 3 );
 		$users = get_users( array(
-			'search'  => '*' . trim( $_REQUEST['term'] ) . '*',
+			'search' => '*' . trim( $_REQUEST['term'] ) . '*',
 			'number' => 15,
 		) );
 		remove_filter( 'user_search_columns', array( $this, 'user_search_columns' ), 10, 3 );
@@ -146,7 +146,6 @@ class AAM_Author_Metabox {
 				'value' => $user->ID,
 			);
 		}
-
 
 		die( json_encode( $results ) );
 	}

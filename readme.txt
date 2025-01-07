@@ -1,13 +1,13 @@
 === Author AutoComplete Metabox ===
 Contributors: meloniq
-Donate link: http://blog.meloniq.net/donate/
+Donate link: https://blog.meloniq.net/donate/
 Plugin URI: https://wordpress.org/plugins/author-autocomplete-metabox/
 Tags: author, metabox, autocomplete
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Requires at least: 4.0
-Tested up to: 4.8
-Stable tag: 0.1
+Requires at least: 4.9
+Tested up to: 6.7
+Stable tag: 0.2
 
 Replaces standard Author metabox with the one powered by AutoComplete feature.
 
@@ -28,6 +28,10 @@ The new Author metabox uses input field combined with AutoComplete search, what 
 
 
 == Changelog ==
+
+= 0.2 =
+* Fixed loading metabox
+* Removed jQuery dependency
 
 = 0.1 =
 * Initial release
